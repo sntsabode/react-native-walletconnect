@@ -5,15 +5,15 @@ const createErrorThunk = () => () => Promise.reject(
 )
 
 export const defaultContext = Object.freeze({
-  createSession: createErrorThunk(),
-  killSession: createErrorThunk(),
+  createSession: createErrorThunk() as () => Promise<void>,
+  killSession: createErrorThunk() as () => Promise<void>,
   session: [],
-  sendTransaction: createErrorThunk(),
-  signTransaction: createErrorThunk(),
-  signPersonalMessage: createErrorThunk(),
-  signMessage: createErrorThunk(),
-  signTypedData: createErrorThunk(),
-  sendCustomRequest: createErrorThunk()
+  sendTransaction: createErrorThunk() as () => Promise<void>,
+  signTransaction: createErrorThunk() as () => Promise<void>,
+  signPersonalMessage: createErrorThunk() as () => Promise<void>,
+  signMessage: createErrorThunk() as () => Promise<void>,
+  signTypedData: createErrorThunk() as () => Promise<void>,
+  sendCustomRequest: createErrorThunk() as () => Promise<void>
 })
 
 const WalletConnectContext = createContext(defaultContext)
