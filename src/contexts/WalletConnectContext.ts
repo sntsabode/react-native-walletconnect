@@ -1,8 +1,8 @@
 import { createContext } from 'react'
 
 const createErrorThunk = () => () => Promise.reject(
-  new Error('It looks like you\'ve forgotten to wrap your App with the <WalletConnectProvider />.'),
-);
+  new Error('It looks like you\'ve forgotten to wrap your App with the <WalletConnectProvider />.')
+)
 
 export const defaultContext = Object.freeze({
   createSession: createErrorThunk(),
