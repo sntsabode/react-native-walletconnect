@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react'
 import { View } from 'react-native'
-import { WebView } from 'react-native-webview-modal'
+import { WebView } from '../react-native-webview-modal/index'
 import { nanoid } from 'nanoid/non-secure'
 
 interface IWalletConnectWebView {
@@ -63,12 +63,12 @@ function WalletConnectWebView({
 }: IWalletConnectWebView) {
   const [key, setKey] = useState(nanoid)
   const ref = useRef()
-  const [roundTrips, setRoundTrips] = useState({})
+  const [roundTrips, setRoundTrips] = useState({} as { [key: string]: any })
 
   const makeRoundTrip = useCallback(
     async (fn, ...params) => new Promise(
       (resolve, reject) => {
-        const { current } = ref as React.MutableRefObject<
+        const { current } = ref as unknown as React.MutableRefObject<
           { injectJavaScript: <T, R>(param: T) => R }
         >
         if (!current) {
