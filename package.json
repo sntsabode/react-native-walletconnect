@@ -2,8 +2,7 @@
   "scripts": {
     "build": "yarn ; babel --extensions .js,.ts,.tsx ./src -d ./dist ; yarn run build:tsc ; rm -rf node_modules ;",
     "build:dev": "babel --extensions .ts,.tsx ./src -d ./dist ; yarn run build:tsc ;",
-    "build:tsc": "tsc",
-    "install": "yarn run build:dev"
+    "build:tsc": "tsc"
   },
   "keywords": [
     "react-native",
