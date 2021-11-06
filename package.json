@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "build": "yarn ; babel src --out-dir dist ; rm -rf node_modules ;"
+    "build": "yarn ; babel --extensions .js,.ts,.tsx ./src -d ./dist ; yarn run build:tsc ; rm -rf node_modules ;",
+    "build:dev": "babel --extensions .ts,.tsx ./src -d ./dist",
+    "build:tsc": "tsc"
   },
   "keywords": [
     "react-native",
@@ -24,6 +26,7 @@
     "@babel/node": "^7.10.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.16.0",
     "@types/react-native": "^0.66.2",
     "husky": "^4.3.0",
     "jest": "^26.5.2",
@@ -35,6 +38,7 @@
   "version": "0.0.1-alpha.2",
   "description": "⚛️ 👛 WalletConnect for React Native! Zero linking, full awesome. (Android/iOS/Web/Expo)",
   "main": "dist",
+  "types": "dist/index.d.ts",
   "repository": "https://github.com/cawfree/react-native-walletconnect",
   "author": "Alex Thomas (@cawfree) <alex@getuni.app>",
   "license": "MIT",
